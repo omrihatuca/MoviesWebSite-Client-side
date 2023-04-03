@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import {Button} from '@mui/material'
 import '../App.css'
 const Addmovie = () => {
 
@@ -34,7 +35,9 @@ Name : <input type={'text'} onChange={(e)=> setfilm({...film, name: e.target.val
  Ganers : <input type={'text'} onChange={(e)=> setfilm({...film, ganers: e.target.value})}  value={film.ganers} /> <br/>
  <br/> 
  Image Url : <input type={'text'} onChange={(e)=> setfilm({...film, imageurl: e.target.value})}  value={film.imageurl} /> <br/>
- <button onClick={adddata}>Save</button>&nbsp;&nbsp;<button onClick={sendback}>Cancel</button> 
+ <Button variant="outlined" onClick={adddata}>Save</Button>&nbsp;&nbsp;<Button variant="outlined" onClick={sendback}>
+ Cancel
+</Button>
 </div>
     </div>
   )

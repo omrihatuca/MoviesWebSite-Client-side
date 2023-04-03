@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link, Outlet, useNavigate } from 'react-router-dom'
 import '../App.css'
 import Moviecomp from './Moviecomp'
+import {Button} from '@mui/material'
 const Movies = () => {
 
 const [showmovies , setshowmovies] = useState(true)
@@ -84,7 +85,8 @@ const navigate = useNavigate()
     <h3>Movies</h3>
     <button className={showmovies? 'yellow' : 'white' } onClick={tomovies}>All movies</button>&nbsp;&nbsp;  
     <button className={showmovies? 'white' : 'yellow'} onClick={addmovie}>Add movie</button> 
-    &nbsp;&nbsp; Find Movie : <input type={'text'} onChange={(e)=>setname(e.target.value)}  />&nbsp;&nbsp; <button onClick={getmoviebyname}>Find</button>  
+    &nbsp;&nbsp; Find Movie : <input type={'text'} onChange={(e)=>setname(e.target.value)}  />&nbsp;&nbsp;  
+    <Button variant="contained" onClick={getmoviebyname} >Find</Button>
     <Outlet/> 
  
 

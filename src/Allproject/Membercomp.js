@@ -2,7 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
-
+import {Button} from '@mui/material'
 const Membercomp = (props) => {
 const stordata = useSelector(state=>state)
   const [films , setfilms] = useState([])
@@ -65,7 +65,9 @@ const addsub = async () =>
 
 Email : {props.mem.email} <br/>
 City : {props.mem.city} <br/>
-&nbsp;&nbsp;<button onClick={update}>Edit</button>&nbsp; <button onClick={deletemember}>Delete</button>
+&nbsp;&nbsp;<Button variant="contained" color="success"onClick={update}>Edit</Button>
+&nbsp; 
+<Button variant="outlined" color="error" onClick={deletemember} >Delete</Button>
 <br/><br/>
 <div className='subborder' >
   <h4>Movies Watched</h4> 

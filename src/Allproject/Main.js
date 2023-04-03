@@ -107,8 +107,10 @@ const Main = () => {
 
   return (
     <div>
-   <div className='App'>
-   <h1>Movies - Subscriptions Web Site</h1>
+   <div className='App'> 
+   <div className={showlogin? 'backimg' :''}>
+
+   <h1 style={{color : "yellow"}}>Movies - Subscriptions Web Site</h1>
 <h3>  {sessionStorage["name"]}</h3>
 {
   showbuttons && 
@@ -122,10 +124,10 @@ const Main = () => {
 
 {
   showlogin && 
-  <div className='App'>
+  <div className='App' style={{color : "yellow"}}>
   <h2>Log-In</h2>
-UserName : <input type={'text'} onChange={(e)=> setuser({...user, username : e.target.value})} /> <br/>
-password : <input type={'text'} onChange={(e)=> setuser({...user, password : e.target.value})} /> <br/>
+ <input type={'text'} onChange={(e)=> setuser({...user, username : e.target.value})} placeholder='Username'  /> <br/>
+ <input type={'text'} onChange={(e)=> setuser({...user, password : e.target.value})}  placeholder='Password' /> <br/>
 <button onClick={step}>Login</button> <br/> <br/>
 
 {
@@ -150,7 +152,7 @@ password : <input type={'text'} onChange={(e)=> setuser({...user, password : e.t
     </Route>  
 </Routes>
 
-
+</div>
     </div>
   )
 }

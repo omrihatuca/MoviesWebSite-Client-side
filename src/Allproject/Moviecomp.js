@@ -2,6 +2,13 @@ import axios from 'axios'
 import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
+import {Button} from '@mui/material'
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import { CardActionArea } from '@mui/material';
+
 import '../App.css'
 const Moviecomp = (props) => {
 
@@ -24,11 +31,26 @@ const deletemovie = async () =>
   return (
     <div>
       <br/>
-   <div className='green'>
-Name : {props.mov.name} , Premierd : {props.mov.premierd}<br/>
-Ganers : {props.mov.ganers}
-<br/>
-<img src={props.mov.imageurl} className={'pic'} />
+   <div>
+<Card sx={{ maxWidth: 345 }}>
+      <CardActionArea>
+        <CardMedia
+          component="img"
+          height="140"
+          image={props.mov.imageurl}
+          alt="green iguana"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+          {props.mov.name}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+          Premierd : {props.mov.premierd}<br/>
+          Ganers : {props.mov.ganers}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+    </Card>
 <div className='subborder' >
   <h4>Subscription Watched</h4>  
 <ul>
@@ -44,9 +66,12 @@ Ganers : {props.mov.ganers}
 </ul>
 </div>
 <br/><br/>
-&nbsp;&nbsp;<button onClick={update}>Edit</button>&nbsp; <button onClick={deletemovie} >Delete</button>
+&nbsp;&nbsp;<Button variant="contained" color="success"onClick={update}>Edit</Button>
+&nbsp; 
+<Button variant="outlined" color="error" onClick={deletemovie} >Delete</Button>
    </div>
    <br/>
+
     </div>
   )
 }
